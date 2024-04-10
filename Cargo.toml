@@ -1,6 +1,6 @@
 [package]
 name = "tauri-named-invoke"
-version = "1.0.1"
+version = "1.0.2"
 authors = ["Ertanic"]
 description = "A small utility that generates a typescript declaration file for the invoke function from functions found in code by Tauri commands. Thanks to this, there is no mistaking the name of the command."
 license-file = "LICENSE"
