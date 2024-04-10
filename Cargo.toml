@@ -4,6 +4,7 @@ version = "1.0.0"
 authors = ["Ertanic"]
 description = "A small utility that generates a typescript declaration file for the invoke function from functions found in code by Tauri commands. Thanks to this, there is no mistaking the name of the command."
 license-file = "LICENSE"
+license = "MIT"
 repository = "https://github.com/Ertanic/tauri-typed-invoke"
 edition = "2021"
 
