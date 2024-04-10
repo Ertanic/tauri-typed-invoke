@@ -108,8 +108,7 @@ fn parse_functions() -> Vec<String> {
     let rx = Regex::new(r"(?m)\#\[(?:tauri::)?command][\s\w]*fn\s+([\w\d_-]+)").unwrap();
     for file in glob("**/*.rs").unwrap() {
         let file = file.unwrap();
-        if file.file_name() == Some(std::ffi::OsStr::new("build.rs")) { continue; }
-        println!("cargo::rerun-if-changed={}", file.display());
+        println!("cargo:rerun-if-changed={}", file.display());
         let content = std::fs::read_to_string(file).unwrap();
         for cap in rx.captures_iter(&content) {
             names.push(cap[1].to_string());
