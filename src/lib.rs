@@ -49,13 +49,12 @@
 //! The generated file will contain:
 //! 
 //! ```typescript
+//! import * as tauri from '@tauri-apps/api/tauri';
 //! declare module '@tauri-apps/api' {
 //!     type Commands = 
 //!           'get_weather'
 //!         | 'get_config';
-//!     
-//!     export default function invoke<T>(cmd: Commands, args?: InvokeArgs | undefined): Promise<T>;
-//!     export default tauri;
+//!     function invoke<T>(cmd: Commands, args?: InvokeArgs): Promise<T>;
 //! }
 //! ```
 //! 
@@ -126,12 +125,10 @@ fn get_content(names: Vec<String>) -> String {
         .join("\n\t\t| ");
 
     format!(
-"import * as tauri from '@tauri-apps/api';
-declare module '@tauri-apps/api' {{
+"import * as tauri from '@tauri-apps/api/tauri';
+declare module '@tauri-apps/api/tauri' {{
     type Commands = 
 \t\t  {};
-
-    export default function invoke<T>(cmd: Commands, args?: InvokeArgs | undefined): Promise<T>;
-    export default tauri;
+    function invoke<T>(cmd: Commands, args?: InvokeArgs): Promise<T>;
 }}", names)
 }

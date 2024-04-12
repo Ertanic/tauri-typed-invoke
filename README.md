@@ -50,13 +50,12 @@ project root
 The generated file will contain:
 
 ```typescript
-import * as tauri from '@tauri-apps/api';
+import * as tauri from '@tauri-apps/api/tauri';
 declare module '@tauri-apps/api' {
     type Commands = 
           'get_weather'
         | 'get_config';
 
-    export default function invoke<T>(cmd: Commands, args?: InvokeArgs | undefined): Promise<T>;
-    export default tauri;
+    function invoke<T>(cmd: Commands, args?: InvokeArgs): Promise<T>;
 }
 ``` 
